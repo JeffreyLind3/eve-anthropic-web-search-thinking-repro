@@ -13,7 +13,7 @@ Send:
 
 > Search the web for one headline from today's tech news, then run Python in your sandbox to count the words in that headline. Keep it short.
 
-In one response, Claude runs `web_search` (Anthropic's server-side `web_search_20250305`), thinks, then calls `bash`. Once `bash` returns, the next model call fails:
+In one response, Claude runs `web_search` (Anthropic's server-side `web_search_20250305`), then calls `bash`. When Claude also thinks between the search result and the `bash` call, the next model call fails once `bash` returns. That happened in about half my runs (5 of 10), so send the message a few times if the first run passes:
 
 ```
 messages.3.content.0: Invalid `signature` in `thinking` block. The block is bound to a different conversation. … Content before this block was rewritten since it was created, first at `messages.1.content.0`.
